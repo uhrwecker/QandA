@@ -35,6 +35,21 @@ class QuestionInterface():
     def edit_answer(self, answer_index, entry, new_value):
         self.answers[answer_index].edit(entry, new_value)
 
+    def set(self, entry, new_value):
+        if entry == 'title':
+            assert new_value and type(new_value) == str, 'Title must be string'
+            self.title = new_value
+        elif entry == 'category':
+            assert new_value and type(new_value) == str, 'Category must be string'
+            self.category = new_value
+        elif entry == 'question_string':
+            assert new_value and type(new_value) == str, 'Q.String must be string'
+            self.question = new_value
+        elif entry == 'language':
+            assert new_value and type(new_value) == str, 'Language must be string'
+            self.language = new_value
+        else:
+            raise ValueError('{} is not a field in Question!'.format(entry))
 
     @staticmethod
     def _setup_answers(answer_config):
