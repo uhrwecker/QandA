@@ -1,0 +1,13 @@
+[
+    {
+        "answers": [
+            {
+                "answer_string": "Just add one! You studip?"
+            }
+        ],
+        "category": "General",
+        "language": "english",
+        "question_string": "Do you know how to setup a question?",
+        "title": "The first question"
+    }
+]

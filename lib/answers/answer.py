@@ -8,7 +8,7 @@ class Answer():
     def __init__(self, answer_string='', comment='', is_correct=False):
         assert answer_string, 'Answer Object has to have a description/entry!'
         self.answer_string = answer_string
-        self.commment = comment
+        self.comment = comment
         self.is_correct = is_correct
 
     def check_if_correct(self):
@@ -31,5 +31,4 @@ class Answer():
             raise ValueError('The entry {} is not in possible answer fields [answer_string, comment, is_correct]'.format(entry))
 
     def __str__(self):
-        string = 'Answer Object with answer_string: -{}- and comment: -{}- ; answer is correct: -{}-'.format(self.answer_string[:10], self.comment[:10], self.is_correct)
-        return string
+        return self.answer_string + '\n'

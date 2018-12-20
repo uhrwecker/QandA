@@ -32,4 +32,17 @@ class QuestionAdmin():
         del self.questions[question_title]
         self.questions[question.title] = question
 
-    #def edit_answer_in_question(self, question_title,
+    def edit_answer_in_question(self, question_title, answer_index, entry, new_value):
+        self.questions[question_title].edit_answer(answer_index, entry, new_value)
+
+    def remove_answer_in_question(self, question_title, answer_index):
+        self.questions[question_title].remove_answer(answer_index)
+
+    def add_answer_in_question(self, question_title, answer_string='', comment='', 
+                               is_correct=False):
+        self.questions[question_title].add_answer(answer_string=answer_string, comment=comment,
+                                                  is_correct=is_correct)
+
+    def show_question(self, question_title):
+        answer_index = self.questions[question_title].show_on_terminal()
+        return answer_index

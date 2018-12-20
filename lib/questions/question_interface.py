@@ -51,6 +51,16 @@ class QuestionInterface():
         else:
             raise ValueError('{} is not a field in Question!'.format(entry))
 
+    def show_on_terminal(self):
+        print('--------------------------------------------')
+        print('Next question:')
+        print(self.question_string)
+        print('--------------------------------------------')
+        for answer, index in zip(self.answers, range(len(self.answers))):
+            print('(' + str(index+1)  + ') ' + str(answer))
+        return [answer_index for answer_index in range(len(self.answers))]
+
+
     @staticmethod
     def _setup_answers(answer_config):
         answers = []
