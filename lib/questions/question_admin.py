@@ -46,3 +46,18 @@ class QuestionAdmin():
     def show_question(self, question_title):
         answer_index = self.questions[question_title].show_on_terminal()
         return answer_index
+
+    def search(self, search=''):
+        # right now, it only searches by title, which should be enough
+        questions = []
+        for title in self.questions.keys():
+            if search in title:
+                questions.append(self.questions[title])
+        return questions
+
+    def get_data(self):
+        data = []
+        for q in self.questions.values():
+            data.append(q.get())
+        return data
+

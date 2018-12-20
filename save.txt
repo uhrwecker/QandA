@@ -2,7 +2,9 @@
     {
         "answers": [
             {
-                "answer_string": "Just add one! You studip?"
+                "answer_string": "Just add one! You studip?",
+                "comment": "",
+                "is_correct": false
             }
         ],
         "category": "General",

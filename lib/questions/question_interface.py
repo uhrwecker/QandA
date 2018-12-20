@@ -51,6 +51,15 @@ class QuestionInterface():
         else:
             raise ValueError('{} is not a field in Question!'.format(entry))
 
+    def get(self):
+        config = {}
+        config['title'] = self.title
+        config['category'] = self.category
+        config['question_string'] = self.question_string
+        config['answers'] = [d.get_config() for d in self.answers]
+        config['language'] = self.language
+        return config
+
     def show_on_terminal(self):
         print('--------------------------------------------')
         print('Next question:')

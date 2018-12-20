@@ -30,5 +30,12 @@ class Answer():
         else:
             raise ValueError('The entry {} is not in possible answer fields [answer_string, comment, is_correct]'.format(entry))
 
+    def get_config(self):
+        config = {}
+        config['answer_string'] = self.answer_string
+        config['comment'] = self.comment
+        config['is_correct'] = self.is_correct
+        return config
+
     def __str__(self):
         return self.answer_string + '\n'
