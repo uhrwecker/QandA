@@ -60,13 +60,16 @@ class QuestionInterface():
         config['language'] = self.language
         return config
 
-    def show_on_terminal(self):
-        print('--------------------------------------------')
-        print('Next question:')
+    def show_on_terminal(self, nb_q=1, max_nb_q=1):
+        print('-'*80)
+        print('Next question: {}/{}'.format(nb_q, max_nb_q))
+        print('-'*80)
+        print('')
         print(self.question_string)
-        print('--------------------------------------------')
+        print('')
+        print('-'*80)
         for answer, index in zip(self.answers, range(len(self.answers))):
-            print('(' + str(index+1)  + ') ' + str(answer))
+            print('(' + str(index)  + ') ' + str(answer))
         return [answer_index for answer_index in range(len(self.answers))]
 
 

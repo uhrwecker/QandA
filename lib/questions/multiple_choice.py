@@ -14,10 +14,11 @@ class MultipleChoiceQuestion(question_interface.QuestionInterface):
         result = {}
         try:
             for index in given_answer_index:
-                result[index] = (self.answer[index].check_if_correct(), 
-                                 getattr(self.answer[index], 'comment'))
+                index = int(index)
+                result[index] = (self.answers[index].check_if_correct(), 
+                                 getattr(self.answers[index], 'comment'))
         except:
-            result[given_answer_index] = (self.answer[given_answer_index].check_if_correct(), getattr(self.answer[given_answer_index], 'comment'))
+            result[str(given_answer_index)] = (self.answers[given_answer_index].check_if_correct(), getattr(self.answers[given_answer_index], 'comment'))
 
         return result
 

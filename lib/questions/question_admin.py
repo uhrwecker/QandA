@@ -55,6 +55,14 @@ class QuestionAdmin():
                 questions.append(self.questions[title])
         return questions
 
+    def select_questions(self):
+        # TODO introduce QuestionSelectHandler, that implements a more divers and
+        #      substantial question selection algorithm
+        qs = []
+        for q in list(self.questions.values())[:5]:
+            qs.append(q)
+        return qs
+
     def get_data(self):
         data = []
         for q in self.questions.values():

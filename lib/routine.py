@@ -1,5 +1,6 @@
 from lib.questions import question_admin
 from lib.util import filehandling
+from lib.terminal import exam_env
 
 class Routine():
     '''
@@ -13,9 +14,15 @@ class Routine():
         self.save_data = self._handle_first_loading()
         self.qa = question_admin.QuestionAdmin(self.save_data)
 
+        self.exam_env = exam_env.TerminalExamEnvironment()
+
     def show(self):
         for question in self.qa.questions:
             self.qa.show_question(question)
+
+    def start_exam_env(self):
+        questions = self.qa.select_questions()
+        result = self.exam_env.start(questions)
 
     def save(self):
         self.fh.save_data(self.qa.get_data())
