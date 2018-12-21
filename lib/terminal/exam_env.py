@@ -11,11 +11,12 @@ class TerminalExamEnvironment():
             answer_indizes = self._print_question(q, questions.index(q), len(questions))
             answer = self._handle_input(len(answer_indizes))
             if type(answer) == str:
-                return answer
+                return (answer, q)
             current_result = self._check_result(answer, q)
             result.append(current_result)
             self._show_result(current_result)
         self._show_result(result)
+        return result
 
     def _print_question(self, q, nb_q, max_nb_q):
         indizes = q.show_on_terminal(nb_q+1, max_nb_q)
